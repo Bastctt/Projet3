@@ -8,7 +8,7 @@ async function getWorks() {//Je crée une fonction asynch (ça permet que la fon
   const filtres = document.querySelectorAll(".filtres button"); //Je veux dans mon document html TOUS les button qui sont dans l'élement qui à la classe "filtres"
   const all = document.querySelector(".all");
 
-  const boutons = document.querySelectorAll("button");
+  const buttons = document.querySelectorAll("button");
 
   // ETAPE 1 Appel des travaux via l'API avec la methode GET
   let tonApi = "http://localhost:5678/api/works";
@@ -61,14 +61,14 @@ async function getWorks() {//Je crée une fonction asynch (ça permet que la fon
     }
     });
     
-    boutons.forEach(bouton => {
-      bouton.addEventListener("click", () => {
-        boutons.forEach(bouton => {
-          bouton.style.backgroundColor = "#FFFEF8";
-          bouton.style.color = "#1D6154";
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(button => {
+          button.style.backgroundColor = "#FFFEF8";
+          button.style.color = "#1D6154";
         });
-        bouton.style.backgroundColor = "#1D6154";
-        bouton.style.color = "#FFFEF8";
+        button.style.backgroundColor = "#1D6154";
+        button.style.color = "#FFFEF8";
       });
     });
   }
