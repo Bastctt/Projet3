@@ -44,7 +44,6 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
-	cursor: pointer;
 }
 
 section {
@@ -58,6 +57,7 @@ h1{
 	font-size: 22px;
 	font-weight: 800;
 	color: #B1663C;
+	cursor: default;
 }
 
 h1 > span {
@@ -84,11 +84,18 @@ nav li {
 	font-size: 1.2em;
 }
 
-nav img {
-	width: 50%;
+nav a {
+	color: black;
+	text-decoration: none;
+	padding: 0 10px;
+	cursor: pointer;
 }
 
-li:hover {
+nav a img {
+	width: 36%;
+}
+
+nav a:hover {
 	color: #B1663C;
 }
 
@@ -101,8 +108,9 @@ li:hover {
 	text-align: center;
 }
 
-#login h2{
+#login h2 {
 	margin-bottom: 20px;
+	cursor: default;
 }
 
 #login form {
@@ -143,6 +151,7 @@ input[type="submit"]{
 form a {
 	text-align: center;
 	text-decoration: underline;
+	cursor: pointer;
 }
 
 footer nav ul {
@@ -150,4 +159,8 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em;
 	cursor: pointer;
+}
+
+footer li:hover {
+	color: #B1663C;
 }

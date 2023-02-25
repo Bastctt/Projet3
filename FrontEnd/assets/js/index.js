@@ -1,15 +1,17 @@
-// Variables travaux
-const gallery = document.querySelector(".gallery"); //Je veux dans mon document html l'élement qui à la classe "gallery" (donc ta div gallery)
-const figures = []; //Je crée ici un tableau pour pouvoir utilser mes figures à l'extérieur de ma fonction getWorks()
-// Variables filtres
-const filtres = document.querySelectorAll(".filtres button"); //Je veux dans mon document html TOUS les button qui sont dans l'élement qui à la classe "filtres"
-const all = document.querySelector(".all");
+getWorks(); // Je lance ma fonction, important sinon il se passe rien
 
-// ETAPE 1 Appel des travaux via l'API avec la methode GET
-let tonApi = "http://localhost:5678/api/works";
+async function getWorks() {//Je crée une fonction asynch (ça permet que la fonction ne bloque pas toute la page, elle sera lu uniquement quand elle aura fini de se charger)
+  // Variables travaux
+  const gallery = document.querySelector(".gallery"); //Je veux dans mon document html l'élement qui à la classe "gallery" (donc ta div gallery)  
+  const figures = []; //Je crée ici un tableau pour pouvoir utilser mes figures à l'extérieur de ma fonction getWorks()
+  // Variables filtres
+  const filtres = document.querySelectorAll(".filtres button"); //Je veux dans mon document html TOUS les button qui sont dans l'élement qui à la classe "filtres"
+  const all = document.querySelector(".all");
 
-async function getWorks() {
-  //Je crée une fonction asynch (ça permet que la fonction ne bloque pas toute la page, elle sera lu uniquement quand elle aura fini de se charger)
+  const boutons = document.querySelectorAll("button");
+
+  // ETAPE 1 Appel des travaux via l'API avec la methode GET
+  let tonApi = "http://localhost:5678/api/works";
 
   try {
     //Dans try je dis ce qu'il se passe si je reçois mon API
@@ -17,7 +19,7 @@ async function getWorks() {
     const works = await response.json(); //  Je crée une variable works quand response a fini de se transformer en objet json, works est égale à response, donc aux données de l'api, mais cette fois-ci sous forme "d'objet manipulable"
 
     for (let i in works) {
-      //"For i in works" "Pour i dans works" => Pour chaque éléments DANS works je fais :
+      // => Pour chaque éléments DANS works je fais :
       const figure = document.createElement("figure");
       const img = document.createElement("img");
       const figcaption = document.createElement("figcaption");
@@ -37,31 +39,47 @@ async function getWorks() {
   } catch (error) {
     console.error(" Attention il y a une erreur");
   }
-}
-getWorks(); // Je lance ma fonction, important sinon il se passe rien
+  // Filtrage des travaux
 
-// Filtrage des travaux
-
-for (let button of filtres) {
+  for (let button of filtres) {
   //Pour chaque bouton de filtres je fais :
 
   button.addEventListener("click", function () {
 
   for (let figure of figures) {
-    if (
-        figure.getAttribute("data-id") === button.getAttribute("data-id") //Si la valeur de l'attribut "data-id" de figure est égale à la valeur de l'attribut "data-id" du bouton 
-    ) {
-      figure.style.display = "block";
-   
-    } else if(button === all){ 
+      if (
+          figure.getAttribute("data-id") === button.getAttribute("data-id") //Si la valeur de l'attribut "data-id" de figure est égale à la valeur de l'attribut "data-id" du bouton 
+      ) {
         figure.style.display = "block";
+    
+      } else if(button === all){ 
+          figure.style.display = "block";
+      }
+      else {
+        figure.style.display = "none";
+      }
     }
-    else {
-      figure.style.display = "none";
-    }
+    });
+    
+    boutons.forEach(bouton => {
+      bouton.addEventListener("click", () => {
+        boutons.forEach(bouton => {
+          bouton.style.backgroundColor = "#FFFEF8";
+          bouton.style.color = "#1D6154";
+        });
+        bouton.style.backgroundColor = "#1D6154";
+        bouton.style.color = "#FFFEF8";
+      });
+    });
   }
-  });
 }
+
+
+
+
+
+
+
 
   
         
