@@ -1,80 +1,81 @@
-initialisation();
-
-function initialisation(){
-    getProjects();
-    getCategories();
-}
-
-function getProjects(){
-    fetch('http://localhost:5678/api/works')
-    .then((res)=> res.json())
-    .then(projects=>
-        displayProjects(projects)
-    );
-    
-}
-
-function getCategories(){
-    fetch('http://localhost:5678/api/categories')
-    .then((res)=> res.json())
-    .then(categories=>
-        displayCategories(categories)
-    );
-}
-
-const figures = [];
-
-function displayProjects(projects){
-    
-    projects.forEach(element => {
-        console.log(element)
-        
-
-        let figure = document.createElement('figure');
-        figure.setAttribute("id", element.categoryId)
-        let img = document.createElement('img');
-        img.setAttribute('src',element.imageUrl);
-        img.setAttribute('alt', element.title);
-
-        let figcaption = document.createElement('figcaption');
-        figcaption.innerHTML = element.title;
-
-        figure.appendChild(img)
-        figure.appendChild(figcaption)
-        figure.push(figure);
-        
-
-        document.querySelector('.gallery').appendChild(figure);
-    });
-
-}
-
-const elementsFilter = document.querySelector(". filtres button");
+// Variables travaux
+const gallery = document.querySelector(".gallery"); //Je veux dans mon document html l'élement qui à la classe "gallery" (donc ta div gallery)
+const figures = []; //Je crée ici un tableau pour pouvoir utilser mes figures à l'extérieur de ma fonction getWorks()
+// Variables filtres
+const filtres = document.querySelectorAll(".filtres button"); //Je veux dans mon document html TOUS les button qui sont dans l'élement qui à la classe "filtres"
 const all = document.querySelector(".all");
-const button = document.querySelector("button");
 
-    button.forEach(button => {
-        button.addEventListener('click', function (){
-            for (let e of button){
-                e.classList.remove(".active");
-            }
-            button.classList.add(".active");        
-        });
-    });
+// ETAPE 1 Appel des travaux via l'API avec la methode GET
+let tonApi = "http://localhost:5678/api/works";
 
-    figure.forEach(figure => { {
-        if (
-            figure.getAttribute("data-category-id") ===
-            button.getAttribute("data-category-id")
-        ){
-            figure.style.display = "block";
+async function getWorks() {
+  //Je crée une fonction asynch (ça permet que la fonction ne bloque pas toute la page, elle sera lu uniquement quand elle aura fini de se charger)
 
-        }   else if (button==all){
-            figure.stytle.display = "block";
-        } 
-            else {
-            figure.style.display = "none";
-        }
-        };
+  try {
+    //Dans try je dis ce qu'il se passe si je reçois mon API
+    const response = await fetch(tonApi); // Je crée une variable response quand fetch a terminé de recuperer l'api, response est égale aux données de l'api
+    const works = await response.json(); //  Je crée une variable works quand response a fini de se transformer en objet json, works est égale à response, donc aux données de l'api, mais cette fois-ci sous forme "d'objet manipulable"
+
+    for (let i in works) {
+      //"For i in works" "Pour i dans works" => Pour chaque éléments DANS works je fais :
+      const figure = document.createElement("figure");
+      const img = document.createElement("img");
+      const figcaption = document.createElement("figcaption");
+
+      img.setAttribute("src", works[i].imageUrl);
+      img.setAttribute("alt", works[i].title);
+      img.setAttribute("cross-origin", "anonymous");
+      
+      figcaption.innerHTML = works[i].title;
+
+      figure.append(img, figcaption); //J'ajoute img PUIS figcaption dans figure
+      figure.setAttribute("data-id", works[i].categoryId);
+      gallery.append(figure);
+      figures.push(figure);
+      console.log(works)
+    }
+  } catch (error) {
+    console.error(" Attention il y a une erreur");
+  }
+}
+getWorks(); // Je lance ma fonction, important sinon il se passe rien
+
+// Filtrage des travaux
+
+for (let button of filtres) {
+  //Pour chaque bouton de filtres je fais :
+
+  button.addEventListener("click", function () {
+
+  for (let figure of figures) {
+    if (
+        figure.getAttribute("data-id") === button.getAttribute("data-id") //Si la valeur de l'attribut "data-id" de figure est égale à la valeur de l'attribut "data-id" du bouton 
+    ) {
+      figure.style.display = "block";
+   
+    } else if(button === all){ 
+        figure.style.display = "block";
+    }
+    else {
+      figure.style.display = "none";
+    }
+  }
+  });
+}
+
+  
+        
     
-    });
+
+  
+
+
+
+
+
+
+
+
+
+
+

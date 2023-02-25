@@ -23,6 +23,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 	background-color: #FFFEF8;
+	scroll-behavior: smooth;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -108,7 +109,6 @@ nav li {
 
 nav a {
 	padding: 0 10px;
-    font-size: 1.2em;
 	color: black;
 	text-decoration: none;
 }
@@ -165,72 +165,73 @@ li:hover {
 	gap: 10px;
 }
 
-.active {
+.all {
+	width: 9%;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	background-color: #FFFEF8;
+	cursor: pointer;
+}
+
+.button1 {
+	width: 9%;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	background-color: #FFFEF8;
+	cursor: pointer;
+}
+
+.button2 {
+	width: 13%;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	background-color: #FFFEF8;
+	cursor: pointer;
+}
+
+.button3 {
+	width: 17%;
+	height: 37px;
+	border: 1px solid #1D6154;
+	border-radius: 60px;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 19px;
+	text-align: center;
+	color: #1D6154;
+	background-color: #FFFEF8;
+	cursor: pointer;
+}
+
+button:hover {
 	background-color: #1D6154;
-}
-
-button:nth-child(1){
-	width: 100px;
-	height: 37px;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	font-family: 'Syne';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 19px;
-	text-align: center;
-	color: #1D6154;
-	background-color: #FFFEF8;
-	cursor: pointer;
-}
-
-button:nth-child(2) {
-	width: 100px;
-	height: 37px;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	font-family: 'Syne';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 19px;
-	text-align: center;
-	color: #1D6154;
-	background-color: #FFFEF8;
-	cursor: pointer;
-}
-
-button:nth-child(3) {
-	width: 157px;
-	height: 37px;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	font-family: 'Syne';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 19px;
-	text-align: center;
-	color: #1D6154;
-	background-color: #FFFEF8;
-	cursor: pointer;
-}
-
-button:nth-child(4) {
-	width: 198px;
-	height: 37px;
-	border: 1px solid #1D6154;
-	border-radius: 60px;
-	font-family: 'Syne';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 15px;
-	line-height: 19px;
-	text-align: center;
-	color: #1D6154;
-	background-color: #FFFEF8;
-	cursor: pointer;
+	color: #FFFEF8;
 }
 
 .gallery {
@@ -298,5 +299,6 @@ footer nav ul {
 	display: flex;
 	justify-content: flex-end;
 	margin: 2em;
+	cursor: pointer;
 }
 
