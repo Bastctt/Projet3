@@ -35,7 +35,7 @@ ol, ul {
 
 body {
 	max-width: 1140px;
-	margin:auto;
+	margin: auto;
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
@@ -44,6 +44,11 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
+}
+
+header a {
+	text-decoration: none;
+	color: #B1663C;
 }
 
 section {
@@ -57,7 +62,6 @@ h1{
 	font-size: 22px;
 	font-weight: 800;
 	color: #B1663C;
-	cursor: default;
 }
 
 h1 > span {
@@ -75,19 +79,17 @@ h2 {
 
 nav ul {
 	display: flex;
-	align-items: center;
 	list-style-type: none;
+	gap: 40px;
 }
 
 nav li {
-	padding: 0 10px;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 nav a {
 	color: black;
 	text-decoration: none;
-	padding: 0 10px;
 	cursor: pointer;
 }
 
@@ -97,6 +99,10 @@ nav a img {
 
 nav a:hover {
 	color: #B1663C;
+}
+
+.loginStrong {
+	font-weight: 600;
 }
 
 #login {
