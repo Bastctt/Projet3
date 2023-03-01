@@ -3,7 +3,8 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#motDePasse').value;
-
+  
+  
   if (email === 'sophie.bluel@test.tld' && password === 'S0phie') {
     fetch('http://localhost:5678/api/users/login', {
       method: 'POST',
@@ -23,7 +24,6 @@ form.addEventListener('submit', (event) => {
       window.location.href = 'index.html';
     })
     .catch(error => {
-      // Erreur lors de la connexion, afficher un message d'erreur
       console.error(error);
     });
   } else {

@@ -1,7 +1,7 @@
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
+del, dfn, em, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
@@ -61,7 +61,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0;
+	margin: 90px 0 50px;
 }
 
 section {
@@ -95,6 +95,7 @@ nav ul {
 	display: flex;
 	list-style-type: none;
 	gap: 40px;
+	align-items: center;
 }
 
 nav li {
@@ -111,7 +112,7 @@ nav a:hover {
 }
 
 nav img {
-	width: 36%;
+	width: 50%;
 }
 
 li:hover {
@@ -247,6 +248,81 @@ li:hover {
 	color: #1D6154;
 	background-color: #FFFEF8;
 	cursor: pointer;
+}
+
+.edit {
+	display: none;
+}
+
+.edit-show {
+	display: block;
+}
+
+#modale {
+	background-color: black;
+    height: 59px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+    position: absolute;
+    margin-bottom: 49px;
+	width: 100%;
+}
+
+#modale p {
+	background-color: black;
+    color: white;
+    height: 19px;
+    width: 102px;
+    left: 565px;
+    top: 22px;
+    position: absolute;
+	cursor: default;
+}
+
+#modale button {
+	height: 38px;
+    width: 216px;
+    left: 688px;
+    top: 10px;
+    border-radius: 60px;
+    position: absolute;
+    border: none;
+	color: black !important;
+	background-color: white !important;
+	cursor: pointer;
+}
+
+#modale img {
+	position: absolute;
+    left: 36.19%;
+    right: 61.62%;
+    top: 31.44%;
+    bottom: 33.95%;
+}
+
+#modale2 p {
+	position: absolute;
+    left: 251px;
+    top: 518px;
+    line-height: 20px;
+    text-align: center;
+}
+
+#modale2 img {
+	position: absolute;
+    left: 222px;
+    top: 518px;
+}
+
+#modale3 img {
+	position: absolute;
+    left: 58.75%;
+    top: 75.4%;
+}
+
+#modale3 p {
+
 }
 
 .gallery {
