@@ -43,7 +43,7 @@ body {
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0;
+	margin: 90px 0 50px;
 }
 
 header a {
@@ -131,7 +131,6 @@ nav a:hover {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	
 }
 
 #login label {
@@ -153,6 +152,27 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px;
 	cursor: pointer;
+}
+
+#login .password-icon {
+	display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50%;
+	transform: translateY(125%);
+	width: 20px;
+	color: black;
+	transition: all 0.2s;
+	right: 465px;
+}
+
+#login .password-icon .feather-eye-off {
+	display: none;
+}
+
+#login .password-icon:hover {
+	cursor: pointer;
+	color: #B1663C;
 }
 
 form a {
