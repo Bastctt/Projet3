@@ -81,6 +81,7 @@ nav ul {
 	display: flex;
 	list-style-type: none;
 	gap: 40px;
+	align-items: center;
 }
 
 nav li {
@@ -94,7 +95,7 @@ nav a {
 }
 
 nav a img {
-	width: 36%;
+	width: 50%;
 }
 
 nav a:hover {
