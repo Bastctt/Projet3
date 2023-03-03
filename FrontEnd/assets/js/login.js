@@ -21,6 +21,7 @@ form.addEventListener('submit', (event) => {
       // Connexion réussie, faire quelque chose ici (ex: redirection vers une autre page)
       console.log(data);
       window.location.href = 'index.html';
+      sessionStorage.setItem('userToken', data.token);
     })
     .catch(error => {
       console.error(error);
