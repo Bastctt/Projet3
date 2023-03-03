@@ -73,16 +73,6 @@ async function getWorks() {//Je crée une fonction asynch (ça permet que la fon
     });
   }
 }
-// Sélectionner le formulaire et ajouter un événement de soumission
-const form = document.querySelector('form');
-form.addEventListener('submit', function(event) {
-  // Empêcher le comportement par défaut de soumission du formulaire
-  event.preventDefault();
-  
-  // Sélectionner l'élément à afficher et lui donner un style "display: block"
-  const edit = document.querySelector('.edit');
-  edit.style.display = 'block';
-});
 
 
 

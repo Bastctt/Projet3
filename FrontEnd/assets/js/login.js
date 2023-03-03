@@ -3,7 +3,6 @@ form.addEventListener('submit', (event) => {
   event.preventDefault();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#motDePasse').value;
-  const edit = document.querySelector('.edit');
   
   
   if (email === 'sophie.bluel@test.tld' && password === 'S0phie') {
@@ -21,9 +20,7 @@ form.addEventListener('submit', (event) => {
     .then(data => {
       // Connexion réussie, faire quelque chose ici (ex: redirection vers une autre page)
       console.log(data);
-      localStorage.setItem('userToken', data.token)
       window.location.href = 'index.html';
-      edit.style.display = 'block';
     })
     .catch(error => {
       console.error(error);
