@@ -250,32 +250,42 @@ li:hover {
 	cursor: pointer;
 }
 
+.overlay,
+.myModal {
+	display: none;
+}
+
+.overlay.visible,
+.myModal.visible {
+	display: block;
+}
+
 .overlay {
 	position: absolute;
-	width: 1480px;
+	width: 100%;
 	height: 4800px;
 	left: -3px;
 	top: 59px;
 	background: rgba(0, 0, 0, 0.3);
-	display: none;
 }
 
 .myModal {
-	position: absolute;
-	width: 630px;
-	height: 731px;
-	left: 405px;
-	top: 551px;
 	background: #FFFFFF;
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-	display: none;
+	position: absolute;
+	top: 18%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 630px;
+	height: 731px;
+	z-index: 1;
 }
 
 .modal_close {
 	position: absolute;
-	right: 1%;
-	top: 1%;
+	right: 3%;
+	top: 3%;
 	cursor: pointer;
 }
 
@@ -289,6 +299,27 @@ li:hover {
     justify-content: center;
     margin: 60px;
 	color: black;
+	background: white;
+}
+
+.modal--open {
+	display: block;
+}
+
+.modal_footer {
+	position: absolute;
+    bottom: 5%;
+}
+
+.modal_footer button {
+	display: block;
+}
+
+.myModal hr {
+	position: relative;
+    top: 55%;
+	border: 1px solid #B3B3B3;
+    width: 70%;
 }
 
 .modal_footer_button {
@@ -296,7 +327,7 @@ li:hover {
     color: rgb(255, 254, 248) !important;
 	border: 1px solid #1D6154 !important;
 	border-radius: 60px;
-	width: 40%;
+	width: 255px;
 	height: 37px;
 	cursor: pointer;
 	font-family: 'Syne';
@@ -305,11 +336,13 @@ li:hover {
 	font-size: 14px;
 	line-height: 17px;
 	text-align: center;
+	position: relative;
+	left: 74%;
+	margin-bottom: 23px;
 }
 
 .modal_footer_button2 {
 	border: none;
-    background-color: white;
     color: red !important;
 	cursor: pointer;
 	font-family: 'Syne';
@@ -317,7 +350,9 @@ li:hover {
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 17px;
-	text-align: center;
+	background: none;
+	position: relative;
+	left: 91.8%;
 }
 
 .editBtn {
@@ -373,8 +408,37 @@ li:hover {
     right: 61.62%;
     top: 31.44%;
     bottom: 33.95%;
+	background: none;
 }
 
+.edit2 {
+	display: flex;
+    position: relative;
+    left: 5%;
+    top: -46px;
+    background: none;
+}
+
+.edit2 p {
+	line-height: 20px;
+	padding-left: 7px;
+	background: none;
+}
+
+.edit3 {
+	display: flex;
+    position: absolute;
+    left: 57%;
+    top: 65.29%;
+	align-items: center;
+	background: none;
+}
+
+.edit3 p {
+	line-height: 20px;
+	padding-left: 7px;
+	background: none;
+}
 
 
 .display-none{

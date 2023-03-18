@@ -1,22 +1,16 @@
-/*
-const userToken = sessionStorage.getItem("userToken");
-const loginLink = document.getElementById("login-link");
-const modale = document.getElementById('modale');
-const modifyBtn = document.querySelectorAll('.modale-bloc');
+const editBtn = document.querySelector('.editBtn');
+const overlay = document.querySelector('.overlay');
+const modal = document.querySelector('.myModal');
+const closeBtn = document.querySelector('.closeBtn');
 
-if (userToken) {
-  modale.style.display = 'block';
-  loginLink.innerHTML = "logout";
-  modifyBtn.forEach(element=>{
-    element.classList.remove('display-none');
-  })
-  
-} 
+editBtn.addEventListener('click', function () {
+  overlay.classList.add('visible');
+  modal.classList.add('visible');
 
-document.addEventListener('beforeunload', () => {
-  sessionStorage.removeItem('userToken');
-  
+closeBtn.addEventListener('click', function () {
+  modal.classList.remove('visible');
+  overlay.classList.remove('visible');
 });
-*/
 
+});
 

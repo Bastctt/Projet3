@@ -64,35 +64,3 @@ else{
 
 
 
-  /*
-// récupère le token de l'utilisateur depuis sessionStorage
-const userToken = sessionStorage.getItem("userToken");
-
-// fonction pour mettre à jour le lien de connexion/logout
-function updateLoginLink() {
-  const loginLink = document.getElementById("login-link");
-
-  if (userToken) {
-    loginLink.textContent = "Logout";
-    loginLink.href = "#";
-  } else {
-    loginLink.textContent = "Login";
-    loginLink.href = "login.html";
-  }
-}
-
-// appelle la fonction pour mettre à jour le lien au chargement de la page
-updateLoginLink();
-
-// ajoute un écouteur d'événement sur le lien pour déconnecter l'utilisateur
-const loginLink = document.getElementById("login-link");
-loginLink.addEventListener("click", function() {
-  if (userToken) {
-    // supprime le token de sessionStorage pour déconnecter l'utilisateur
-    sessionStorage.removeItem("userToken");
-
-    // met à jour le lien de connexion/logout
-    updateLoginLink();
-  }
-});
-*/
