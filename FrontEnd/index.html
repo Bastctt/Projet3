@@ -14,10 +14,10 @@
 	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-	<div class="edit" id="modale">
+	<div class="edit modale-bloc display-none" id="modale">
 		<img src="./assets/icons/icon-edit-white.svg">
-		<p>Mode édition</p> 
-		<button class="edit">Publier les changements</button>
+		<button class="editBtn">Mode édition</button>
+		<button class="edit1" id="modale">Publier les changements</button>
 	</div> 
 <header>
 	<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
@@ -25,12 +25,31 @@
 		<ul>
 			<li><a href="#portfolio">projets</a></li>
 			<li><a href="#contact">contact</a></li>
-			<li><a href="login.html" id="login">login</a></li>
+			<li><a href="login.html" id="login-link">login</a></li>
 			<li><a href="https://www.instagram.com/?hl=fr"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
 		</ul>
 	</nav>
 </header>
 <main>
+	<div class="overlay"></div>
+
+	<div class="myModal">
+		<div class="modal_close">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+		  </svg>
+		</div>
+		<div class="modal_header">
+			<h2 class="modal_header_title">Galerie photo</h2>
+		</div>
+		<div class="modal_body">
+			<p>nfgeiubvibgtritr</p>
+		</div>
+		<div class="modal_footer">
+			<button class="modal_footer_button">Ajouter une photo</button>
+			<button class="modal_footer_button2">Supprimer la galerie</button>
+		</div>
+	</div>
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="Sophie">
@@ -44,12 +63,16 @@
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice).</p>
 		</article>
 	</section>
-	<div class="edit" id="modale2">
+	<div class="edit2 modale-bloc display-none" id="modale">
 		<img src="./assets/icons/icon-edit-black.svg">
 		<p>modifier</p>
 	</div>
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
+		<div class="edit3 modale-bloc  display-none" id="modale">
+			<img src="./assets/icons/icon-edit-black.svg">
+			<p>modifier</p>
+		</div>
 		<div class="filtres">
 			<button class="all" data-id="">Tous</button>
 			<button class="button1" data-id="1">Objets</button>
@@ -58,6 +81,7 @@
 		</div>
 		<div class="gallery">
 		</div>
+	</section>
 	</section>
 	<section id="contact">
 		<h2>Contact</h2>
@@ -81,5 +105,7 @@
 	</nav>
 </footer>
 <script src="./assets/js/index.js"></script>
+<script src="./assets/js/modal.js"></script>
+
 </body>
 </html>

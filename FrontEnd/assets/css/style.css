@@ -250,11 +250,89 @@ li:hover {
 	cursor: pointer;
 }
 
-.edit {
+.overlay {
+	position: absolute;
+	width: 1480px;
+	height: 4800px;
+	left: -3px;
+	top: 59px;
+	background: rgba(0, 0, 0, 0.3);
 	display: none;
 }
 
-#modale {
+.myModal {
+	position: absolute;
+	width: 630px;
+	height: 731px;
+	left: 405px;
+	top: 551px;
+	background: #FFFFFF;
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	display: none;
+}
+
+.modal_close {
+	position: absolute;
+	right: 1%;
+	top: 1%;
+	cursor: pointer;
+}
+
+.modal_close svg {
+	width: 20px;
+	height: 20px;
+}
+
+.modal_header h2 {
+	display: flex;
+    justify-content: center;
+    margin: 60px;
+	color: black;
+}
+
+.modal_footer_button {
+	background-color: rgb(29, 97, 84) !important;
+    color: rgb(255, 254, 248) !important;
+	border: 1px solid #1D6154 !important;
+	border-radius: 60px;
+	width: 40%;
+	height: 37px;
+	cursor: pointer;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+}
+
+.modal_footer_button2 {
+	border: none;
+    background-color: white;
+    color: red !important;
+	cursor: pointer;
+	font-family: 'Syne';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 17px;
+	text-align: center;
+}
+
+.editBtn {
+	position: absolute;
+    left: 39.24%;
+    right: 53.68%;
+    top: 33.9%;
+    bottom: 33.9%;
+    border: none;
+    background-color: black !important;
+    color: white !important;
+	cursor: pointer;
+}
+
+.edit {
 	background-color: black;
     height: 59px;
     left: 0px;
@@ -265,7 +343,7 @@ li:hover {
 	width: 100%;
 }
 
-#modale p {
+.edit p {
 	background-color: black;
     color: white;
     height: 19px;
@@ -276,10 +354,10 @@ li:hover {
 	cursor: default;
 }
 
-#modale button {
+.edit1 {
 	height: 38px;
     width: 216px;
-    left: 688px;
+    left: 760px;
     top: 10px;
     border-radius: 60px;
     position: absolute;
@@ -289,36 +367,18 @@ li:hover {
 	cursor: pointer;
 }
 
-#modale img {
+.edit img {
 	position: absolute;
-    left: 36.19%;
+    left: 38.1%;
     right: 61.62%;
     top: 31.44%;
     bottom: 33.95%;
 }
 
-#modale2 p {
-	position: absolute;
-    left: 251px;
-    top: 518px;
-    line-height: 20px;
-    text-align: center;
-}
 
-#modale2 img {
-	position: absolute;
-    left: 222px;
-    top: 518px;
-}
 
-#modale3 img {
-	position: absolute;
-    left: 58.75%;
-    top: 75.4%;
-}
-
-#modale3 p {
-
+.display-none{
+	display: none;
 }
 
 .gallery {

@@ -1,4 +1,10 @@
-getWorks(); // Je lance ma fonction, important sinon il se passe rien
+init();
+
+function init(){
+  getWorks(); // Je lance ma fonction, important sinon il se passe rien
+  isUserConnected();
+}
+
 
 async function getWorks() {//Je crée une fonction asynch (ça permet que la fonction ne bloque pas toute la page, elle sera lu uniquement quand elle aura fini de se charger)
   // Variables travaux
@@ -74,32 +80,16 @@ async function getWorks() {//Je crée une fonction asynch (ça permet que la fon
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-        
-    
-
-  
-
-
-
-
-
-
-
-
-
-
-
+function isUserConnected(){
+const modifyBtn = document.querySelectorAll('.modale-bloc');
+console.log(sessionStorage.userToken)
+  if(sessionStorage.userToken){
+    let loginLink = document.getElementById('login-link');
+    loginLink.innerHTML = "logout";
+    let url = loginLink.getAttribute('href') + '?logout=true';
+    loginLink.setAttribute('href', url);
+    modifyBtn.forEach(element=>{
+      element.classList.remove('display-none');
+    })
+ }
+}
