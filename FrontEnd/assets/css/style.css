@@ -129,6 +129,10 @@ li:hover {
     top: 561px;
 }
 
+figcaption {
+	cursor: default;
+}
+
 #btn-modif2 {
 	position: absolute;
     left: 872px;
@@ -350,9 +354,19 @@ li:hover {
 	font-weight: 400;
 	font-size: 14px;
 	line-height: 17px;
-	background: none;
+	background: none !important;
 	position: relative;
 	left: 91.8%;
+}
+
+.modal_footer_button2:hover {
+	color: #B22222 !important;
+	transition: 0.3s ease-in-out;
+}
+
+.modal_footer_button:hover {
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	transition: 0.3s ease-in-out;
 }
 
 .editBtn {
@@ -361,10 +375,11 @@ li:hover {
     right: 53.68%;
     top: 33.9%;
     bottom: 33.9%;
+	font: inherit;
     border: none;
     background: none !important;
     color: white !important;
-	cursor: pointer;
+	cursor: default;
 }
 
 .edit {
@@ -395,11 +410,18 @@ li:hover {
     left: 760px;
     top: 10px;
     border-radius: 60px;
+	font: inherit;
     position: absolute;
     border: none;
 	color: black !important;
 	background-color: white !important;
 	cursor: pointer;
+	
+}
+
+.edit1:hover {
+	background-color: lightgrey !important;
+	transition: 0.3s ease-in-out;
 }
 
 .edit img {
@@ -417,13 +439,20 @@ li:hover {
     left: 5%;
     top: -46px;
     background: none;
+	align-items: center;
 }
 
-.edit2 p {
-	line-height: 20px;
+.edit2Btn {
 	padding-left: 7px;
-	background: none;
 	cursor: pointer;
+	font: inherit;
+	border: none !important;
+	background: none !important;
+	color: black !important;
+}
+
+.edit2Btn:hover {
+	text-decoration: underline;
 }
 
 .edit3 {
@@ -435,11 +464,18 @@ li:hover {
 	background: none;
 }
 
-.edit3 p {
+.edit3Btn {
 	line-height: 20px;
 	padding-left: 7px;
-	background: none;
 	cursor: pointer;
+	border: none !important;
+	background: none !important;
+	color: black !important;
+	font: inherit;
+}
+
+.edit3Btn:hover {
+	text-decoration: underline;
 }
 
 
