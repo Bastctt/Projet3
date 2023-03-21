@@ -182,12 +182,17 @@ figcaption {
 	cursor: default;
 }
 
+
 .filtres {
 	display: flex;
 	justify-content: center;
 	margin-bottom: 51px;
     margin-top: 51px;
 	gap: 10px;
+}
+
+.hidden {
+	visibility: hidden;
 }
 
 .all {
@@ -286,6 +291,14 @@ figcaption {
 	z-index: 1;
 }
 
+.modal_body {
+	display: grid;
+    grid-template-columns: repeat(5, 0fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px 10px;
+    justify-content: center;
+}
+
 .modal_close {
 	position: absolute;
 	right: 3%;
@@ -312,7 +325,8 @@ figcaption {
 
 .modal_footer {
 	position: absolute;
-    bottom: 5%;
+    bottom: 3%;
+	background: none;
 }
 
 .modal_footer button {
@@ -321,7 +335,7 @@ figcaption {
 
 .myModal hr {
 	position: relative;
-    top: 55%;
+    top: 4%;
 	border: 1px solid #B3B3B3;
     width: 70%;
 }
@@ -367,6 +381,39 @@ figcaption {
 .modal_footer_button:hover {
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	transition: 0.3s ease-in-out;
+}
+
+.image-container {
+	position: relative;
+}
+
+.image-container p {
+	cursor: pointer;
+}
+
+.delete-icon {
+	position: absolute;
+    top: 5px;
+    right: 5px;
+    left: 65%;
+    bottom: 77%;
+	border-radius: 5px;
+	background-color: black;
+}
+
+.deleteIcon {
+    position: absolute;
+    right: 24%;
+    top: 18%;
+	background: none;
+    color: white;
+    font-size: 0.9rem;
+	transition: transform 0.8s ease-in-out;
+	cursor: pointer;
+}
+
+.deleteIcon:hover {
+	transform: rotate(360deg);
 }
 
 .editBtn {

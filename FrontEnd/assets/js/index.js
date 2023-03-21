@@ -81,6 +81,7 @@ async function getWorks() {
 
 function isUserConnected(){
 const modifyBtn = document.querySelectorAll('.modale-bloc');
+const filtres = document.querySelector('.filtres');
 console.log(sessionStorage.userToken)
   if(sessionStorage.userToken){
     let loginLink = document.getElementById('login-link');
@@ -89,6 +90,7 @@ console.log(sessionStorage.userToken)
     loginLink.setAttribute('href', url);
     modifyBtn.forEach(element=>{
       element.classList.remove('display-none');
+      filtres.classList.add('hidden');
     })
- }
+  }
 }
