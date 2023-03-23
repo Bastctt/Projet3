@@ -4,6 +4,10 @@ const edit3Btn = document.querySelector('.edit3Btn');
 const overlay = document.querySelector('.overlay');
 const modal = document.querySelector('.myModal');
 const closeBtn = document.querySelector('.closeBtn');
+const modalFooterButton = document.querySelector('.modal_footer_button');
+const closeBtn2 = document.querySelector('.closeBtn2');
+const modalAjout = document.querySelector('.modal_ajout');
+const backBtn = document.querySelector('.backBtn');
 
 // Récupération des données via une requête fetch
 fetch("http://localhost:5678/api/works")
@@ -11,62 +15,81 @@ fetch("http://localhost:5678/api/works")
   .then(data => {
     // Boucle sur les données reçues pour créer des éléments HTML
     data.forEach(work => {
-      // Création d'une div pour chaque image
-      const imgDiv = document.createElement('div');
-      imgDiv.classList.add('image-container');
-
-      // Création de l'élément img
+      const figure = document.createElement('div');
       const img = document.createElement("img");
+      const figcaption = document.createElement('p');
+      const deleteIcon = document.createElement('span');
+      
+      figure.classList.add('image-container');
       img.src = work.imageUrl;
       img.width = 78.88;
       img.height = 105.34;
-
-      // Ajout de l'élément img à la div
-      imgDiv.appendChild(img);
-
-      // Création d'un élément p pour le lien "éditer"
-      const editLink = document.createElement('p');
-      editLink.textContent = 'éditer';
-
-      // Ajout de l'élément p à la div
-      imgDiv.appendChild(editLink);
-
-      // Création d'un élément span pour l'icône de poubelle
-      const deleteIcon = document.createElement('span');
+      figcaption.textContent = 'éditer';
       deleteIcon.classList.add('delete-icon');
       deleteIcon.innerHTML = '<i class="fa-regular fa-trash-can deleteIcon"></i>';
-
-      // Ajout de l'élément span à la div
-      imgDiv.appendChild(deleteIcon);
-
-      // Ajout de la div à la modal
-      modalBody.appendChild(imgDiv);
-
+      
+      figure.appendChild(img);
+      figure.appendChild(figcaption);
+      figure.appendChild(deleteIcon);
+      modalBody.appendChild(figure);
+      
       // Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
       deleteIcon.addEventListener('click', function () {
         // Requête fetch pour supprimer le travail
         fetch(`http://localhost:5678/api/works/${work.id}`, {
           method: 'DELETE',
+          headers: {
+            "Authorization" : "Bearer" + "userToken"
+          }
         })
           .then(response => response.json())
           .then(data => {
             // Suppression de la div correspondante
-            imgDiv.remove();
+            figure.remove();
           })
           .catch(error => console.error(error));
       });
     });
   })
- // Ajout des événements click sur les boutons "éditer" et "fermer"
+
 edit3Btn.addEventListener('click', function () {
   overlay.classList.add('visible');
   modal.classList.add('visible');
 });
 
+modalFooterButton.addEventListener('click', function () {
+  modalAjout.style.display = "block";
+});
+
+backBtn.addEventListener('click', function () {
+  modalAjout.style.display = "none";
+})
+
 closeBtn.addEventListener('click', function () {
   modal.classList.remove('visible');
   overlay.classList.remove('visible');
 });
+
+closeBtn2.addEventListener('click', function () {
+  modal.classList.remove('visible');
+  overlay.classList.remove('visible');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

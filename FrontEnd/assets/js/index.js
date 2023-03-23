@@ -79,10 +79,11 @@ async function getWorks() {
   }
 }
 
+
 function isUserConnected(){
 const modifyBtn = document.querySelectorAll('.modale-bloc');
 const filtres = document.querySelector('.filtres');
-console.log(sessionStorage.userToken)
+
   if(sessionStorage.userToken){
     let loginLink = document.getElementById('login-link');
     loginLink.innerHTML = "logout";
@@ -94,3 +95,16 @@ console.log(sessionStorage.userToken)
     })
   }
 }
+
+window.onscroll = function() {
+  scrollFunction()
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("back-to-top").classList.add("show");
+  } else {
+      document.getElementById("back-to-top").classList.remove("show");
+  }
+}
+

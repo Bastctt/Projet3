@@ -22,7 +22,7 @@
 		<button class="editBtn">Mode édition</button>
 		<button class="edit1">publier les changements</button>
 	</div> 
-<header>
+<header id="header">
 	<h1>Sophie Bluel<span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
@@ -35,25 +35,51 @@
 </header>
 <main>
 	<div class="overlay">
-
-	<div class="myModal">
-		<div class="modal_close">
-			<svg class="closeBtn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-		  	</svg>
+		<div class="myModal">
+			<div class="modal_close">
+				<svg class="closeBtn" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
+			<div class="modal_header">
+				<h2>Galerie photo</h2>
+			</div>
+			<div class="modal_body">
+			</div>
+			<hr>
+			<div class="modal_footer">
+				<button class="modal_footer_button">Ajouter une photo</button>
+				<button class="modal_footer_button2">Supprimer la galerie</button>
+			</div>
 		</div>
-		<div class="modal_header">
-			<h2 class="modal_header_title">Galerie photo</h2>
+		<div class="modal_ajout">
+			<div class="modal_close">
+				<svg class="closeBtn2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
+			<div class="modal_back">
+				<svg class="backBtn" width="21" height="15" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M20.3459 6.91164H2.14392L7.58919 1.48731C7.84495 1.23155 7.84495 0.817527 7.58919 0.562423C7.33343 0.306666 6.9194 0.306666 6.6643 0.562423L0.188882 7.03724C-0.0629605 7.28908 -0.0629605 7.71028 0.188882 7.96213L6.66436 14.4376C6.92011 14.6934 7.33414 14.6934 7.58924 14.4376C7.845 14.1818 7.845 13.7678 7.58924 13.5127L2.14392 8.21979H20.3459C20.7069 8.21979 20.9999 7.92673 20.9999 7.56571C20.9999 7.2047 20.7069 6.91164 20.3459 6.91164Z" fill="black"/>
+				</svg>
+			</div>
+				<div class="modal_header">
+					<h2 class="modal_header_title">Ajout photo</h2>
+				</div>
+			<form>
+				<label for="photo"></label>
+					<input type="file" id="photo" class="ajoutPhoto">
+					<button type="submit" class="photoBtn">+ Ajouter photo</button>
+				<label for="titre" id="labTitre">Titre</label>
+					<input type="text" id="titre">
+				<label for="catégorie" id="labCategorie">Catégorie</label>	
+				<input type="text" id="catégorie">			
+			</form>
+			<hr>
+			<div class="modal_footer">
+				<button class="modal_footer_validation">Valider</button>
+			</div>
 		</div>
-		<div class="modal_body">
-			
-		</div>
-		<hr>
-		<div class="modal_footer">
-			<button class="modal_footer_button">Ajouter une photo</button>
-			<button class="modal_footer_button2">Supprimer la galerie</button>
-		</div>
-	</div>
 	</div>
 	<section id="introduction">
 		<figure>
@@ -93,12 +119,12 @@
 		<p>Vous avez un projet ? Discutons-en !</p>
 		<form action="#" method="post">
 			<label for="name">Nom</label>
-			<input type="text" name="name" id="name">
+				<input type="text" name="name" id="name">
 			<label for="email">Email</label>
-			<input type="email" name="email" id="email">
+				<input type="email" name="email" id="email">
 			<label for="message">Message</label>
-			<textarea name="message" id="message" cols="30" rows="10"></textarea>
-			<input type="submit" value="Envoyer">
+				<textarea name="message" id="message" cols="30" rows="10"></textarea>
+				<input type="submit" value="Envoyer">
 		</form>
 	</section>
 </main>
@@ -109,8 +135,10 @@
 		</ul>
 	</nav>
 </footer>
+
 <script src="./assets/js/index.js"></script>
 <script src="./assets/js/modal.js"></script>
+<a href="#" id="back-to-top"><i class="fa fa-chevron-up back-to-top"></i></a>
 
 </body>
 </html>
