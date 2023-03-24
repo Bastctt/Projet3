@@ -8,6 +8,8 @@ const modalFooterButton = document.querySelector('.modal_footer_button');
 const closeBtn2 = document.querySelector('.closeBtn2');
 const modalAjout = document.querySelector('.modal_ajout');
 const backBtn = document.querySelector('.backBtn');
+const token = sessionStorage.getItem('userToken');
+const modalFooterValidation = document.querySelector('.modal_footer_validation');
 
 // Récupération des données via une requête fetch
 fetch("http://localhost:5678/api/works")
@@ -32,22 +34,31 @@ fetch("http://localhost:5678/api/works")
       figure.appendChild(figcaption);
       figure.appendChild(deleteIcon);
       modalBody.appendChild(figure);
+
+//Envoie d'un nouveau travail avec fetch et post
+modalFooterValidation.addEventListener('click', function () {
+  fetch("http://localhost:5678/api/works")
+    method
+})
+
       
-      // Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
-      deleteIcon.addEventListener('click', function () {
+      
+// Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
+deleteIcon.addEventListener('click', function () {
         // Requête fetch pour supprimer le travail
-        fetch(`http://localhost:5678/api/works/${work.id}`, {
-          method: 'DELETE',
-          headers: {
-            "Authorization" : "Bearer" + "userToken"
-          }
-        })
-          .then(response => response.json())
-          .then(data => {
+  fetch(`http://localhost:5678/api/works/${work.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${oken}`,
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => response.json())
+        .then(data => {
             // Suppression de la div correspondante
-            figure.remove();
-          })
-          .catch(error => console.error(error));
+          figure.remove();
+        })
+        .catch(error => console.error(error));
       });
     });
   })
@@ -74,6 +85,7 @@ closeBtn2.addEventListener('click', function () {
   modal.classList.remove('visible');
   overlay.classList.remove('visible');
 });
+
 
 
 

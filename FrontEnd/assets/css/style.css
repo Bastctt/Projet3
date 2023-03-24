@@ -275,10 +275,12 @@ figcaption {
 .overlay {
 	position: absolute;
 	width: 100%;
-	height: 4800px;
+    height: 3326px;
 	left: -3px;
 	top: 59px;
 	background: rgba(0, 0, 0, 0.3);
+	backdrop-filter: blur(5px);
+	z-index: 10;
 }
 
 .myModal {
@@ -343,6 +345,15 @@ figcaption {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
+.modal_ajout select {
+	height: 50px;
+	width: 420px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
 
 .photoBtn {
 	background: #CBD6DC !important;
