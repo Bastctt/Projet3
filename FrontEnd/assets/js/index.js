@@ -17,11 +17,11 @@ async function getWorks() {
   const buttons = document.querySelectorAll("button");
 
   
-  let tonApi = "http://localhost:5678/api/works";
+  let Api = "http://localhost:5678/api/works";
 
   try {
     
-    const response = await fetch(tonApi); 
+    const response = await fetch(Api); 
     const works = await response.json(); 
 
     for (let i in works) {
@@ -33,13 +33,15 @@ async function getWorks() {
       img.setAttribute("src", works[i].imageUrl);
       img.setAttribute("alt", works[i].title);
       img.setAttribute("cross-origin", "anonymous");
+      figure.setAttribute("data-id", works[i].categoryId);
       
+
       figcaption.innerHTML = works[i].title;
 
       figure.append(img, figcaption);
-      figure.setAttribute("data-id", works[i].categoryId);
       gallery.append(figure);
       figures.push(figure);
+
       console.log(works)
     }
   } catch (error) {
@@ -67,44 +69,57 @@ async function getWorks() {
     });
     
     buttons.forEach(button => {
+
       button.addEventListener("click", () => {
         buttons.forEach(button => {
+
           button.style.backgroundColor = "#FFFEF8";
           button.style.color = "#1D6154";
+
         });
+
         button.style.backgroundColor = "#1D6154";
         button.style.color = "#FFFEF8";
+
       });
     });
-  }
-}
+  };
+};
 
 
-function isUserConnected(){
+function isUserConnected () {
+
 const modifyBtn = document.querySelectorAll('.modale-bloc');
 const filtres = document.querySelector('.filtres');
 
-  if(sessionStorage.userToken){
+  if(sessionStorage.userToken) {
+
     let loginLink = document.getElementById('login-link');
     loginLink.innerHTML = "logout";
+
     let url = loginLink.getAttribute('href') + '?logout=true';
     loginLink.setAttribute('href', url);
-    modifyBtn.forEach(element=>{
+
+    modifyBtn.forEach(element=> {
+
       element.classList.remove('display-none');
       filtres.classList.add('hidden');
+
     })
   }
-}
+};
 
 window.onscroll = function() {
   scrollFunction()
 };
 
 function scrollFunction() {
+
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
       document.getElementById("back-to-top").classList.add("show");
+      
   } else {
       document.getElementById("back-to-top").classList.remove("show");
   }
-}
+};
 

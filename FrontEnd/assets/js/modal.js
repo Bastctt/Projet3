@@ -1,4 +1,5 @@
 // Sélection des éléments HTML
+
 const modalBody = document.querySelector('.modal_body');
 const edit3Btn = document.querySelector('.edit3Btn');
 const overlay = document.querySelector('.overlay');
@@ -9,9 +10,10 @@ const closeBtn2 = document.querySelector('.closeBtn2');
 const modalAjout = document.querySelector('.modal_ajout');
 const backBtn = document.querySelector('.backBtn');
 const token = sessionStorage.getItem('userToken');
-const modalFooterValidation = document.querySelector('.modal_footer_validation');
+const modalFooterValidation = document.querySelector ('.modal_footer_validation');
 
 // Récupération des données via une requête fetch
+
 fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data => {
@@ -35,33 +37,27 @@ fetch("http://localhost:5678/api/works")
       figure.appendChild(deleteIcon);
       modalBody.appendChild(figure);
 
-//Envoie d'un nouveau travail avec fetch et post
-modalFooterValidation.addEventListener('click', function () {
-  fetch("http://localhost:5678/api/works")
-    method
-})
-
-      
-      
-// Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
-deleteIcon.addEventListener('click', function () {
+      // Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
+      deleteIcon.addEventListener('click', function () {
         // Requête fetch pour supprimer le travail
-  fetch(`http://localhost:5678/api/works/${work.id}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${oken}`,
-          'Content-Type': 'application/json'
-        }
-      })
+        fetch(`http://localhost:5678/api/works/${work.id}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        })
         .then(response => response.json())
         .then(data => {
-            // Suppression de la div correspondante
+          // Suppression de la div correspondante
           figure.remove();
         })
         .catch(error => console.error(error));
       });
     });
-  })
+  });
+
+//Ecouteurs d'évènements pour la modale
 
 edit3Btn.addEventListener('click', function () {
   overlay.classList.add('visible');
@@ -74,7 +70,7 @@ modalFooterButton.addEventListener('click', function () {
 
 backBtn.addEventListener('click', function () {
   modalAjout.style.display = "none";
-})
+});
 
 closeBtn.addEventListener('click', function () {
   modal.classList.remove('visible');
@@ -85,6 +81,61 @@ closeBtn2.addEventListener('click', function () {
   modal.classList.remove('visible');
   overlay.classList.remove('visible');
 });
+
+//Envoie d'un nouveau travail avec fetch et post
+
+modalFooterValidation.addEventListener('click', (event) => {
+  event.preventDefault(); 
+  
+  // Récupérer les informations du formulaire
+  const titre = document.getElementById('titre').value;
+  const categorie = document.getElementById('catégorie').value;
+  const image = document.getElementById('file').files[0];
+  
+  // Créer un objet FormData pour envoyer les données
+  const formData = new FormData();
+  formData.append('title', titre);
+  formData.append('category', categorie);
+  formData.append('image', image);
+  
+  // Envoyer la requête POST à l'API
+  
+  fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${token}`
+    },
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // Afficher le travail nouvellement créé sur la page d'accueil
+    const figure = document.createElement('figure');
+    const figcaption = document.createElement('figcaption');
+    const img = document.createElement('img');
+    const container = document.querySelector('.gallery');
+
+    img.src = URL.createObjectURL(image);
+    img.width = 304;
+    img.height = 405;
+
+    figure.setAttribute('data-id', categorie);
+    figcaption.textContent = titre;
+
+    figure.appendChild(img);
+    figure.appendChild(figcaption);
+    container.appendChild(figure);
+  })
+  .catch(error => console.error(error));
+});
+
+
+
+
+
+
+
 
 
 

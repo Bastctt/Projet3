@@ -45,6 +45,7 @@
 				<h2>Galerie photo</h2>
 			</div>
 			<div class="modal_body">
+				<i class="fa-regular fa-trash-can deleteIcon"></i>
 			</div>
 			<hr>
 			<div class="modal_footer">
@@ -67,16 +68,21 @@
 					<h2 class="modal_header_title">Ajout photo</h2>
 				</div>
 			<form>
-				<label for="photo"></label>
-					<input type="file" id="photo" class="ajoutPhoto">
-					<button type="submit" class="photoBtn">+ Ajouter photo</button>
+				<div class="file-input">
+					<i class="fa-sharp fa-regular fa-image"></i>
+					<label for="file" class="label-file">+ Ajouter une photo</label>
+					<input id="file" class="input-file" type="file">
+					<p>jpg, png : 4mo max</p>
+					<img class="previewImg">
+				</div>
 				<label for="titre" id="labTitre">Titre</label>
 					<input type="text" id="titre">
 				<label for="catégorie" id="labCategorie">Catégorie</label>	
-				<select type="text" id="catégorie">
-					<option value="Objets" data-id="1"></option>
-					<option value="Appartements" data-id="2"></option>
-					<option value="Hôtel & Restaurants" data-id="3"></option>
+				<select id="catégorie">
+					<option></option>
+					<option value="1" data-id="1">Objets</option>
+					<option value="2" data-id="2">Appartements</option>
+					<option value="3" data-id="3">Hôtel & Restaurants</option>
 				</select>		
 				<hr>
 				<div class="modal_footer">
@@ -130,6 +136,7 @@
 				<textarea name="message" id="message" cols="30" rows="10"></textarea>
 				<input type="submit" value="Envoyer">
 		</form>
+		<p id="confirmation">Formulaire envoyé !</p>
 	</section>
 </main>
 <footer>
@@ -143,6 +150,14 @@
 <script src="./assets/js/index.js"></script>
 <script src="./assets/js/modal.js"></script>
 <a href="#" id="back-to-top"><i class="fa fa-chevron-up back-to-top"></i></a>
-
+<script>
+    const form = document.querySelector('#contact form');
+    const confirmation = document.querySelector('#confirmation');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        confirmation.classList.add('show');
+    });
+</script>
 </body>
 </html>

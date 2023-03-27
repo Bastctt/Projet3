@@ -275,7 +275,7 @@ figcaption {
 .overlay {
 	position: absolute;
 	width: 100%;
-    height: 3326px;
+    height: 4000px;
 	left: -3px;
 	top: 59px;
 	background: rgba(0, 0, 0, 0.3);
@@ -288,7 +288,7 @@ figcaption {
 	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	position: absolute;
-	top: 18%;
+	top: 23%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 630px;
@@ -316,7 +316,7 @@ figcaption {
 	background: #FFFFFF;
     border-radius: 10px;
     position: absolute;
-    top: 18%;
+    top: 23%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 630px;
@@ -325,10 +325,19 @@ figcaption {
 	display: none;
 }
 
+.modal_ajout p {
+	position: relative;
+    top: 134px;
+    text-align: center;
+	background: none;
+	color: #444444;
+	cursor: default;
+}
+
 .modal_ajout hr {
 	position: relative;
-    top: 59.2%;
-	border: 1px solid #B3B3B3;
+    top: 434px;
+    border: 1px solid #B3B3B3;
     width: 70%;
 }
 
@@ -336,41 +345,65 @@ figcaption {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-}
-
-.modal_ajout input {
-	height: 50px;
-	width: 420px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	background: none;
 }
 
 .modal_ajout select {
 	height: 50px;
-	width: 420px;
-	font-size: 1.2em;
+	width: 417px;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
+	font-size: 15px;
+	padding-left: 10px;
+}
+
+.file-input {
+	width: 420px;
+    height: 169px;
+    background: #E8F1F7;
+    border-radius: 3px;
+    position: absolute;
+    left: 16.2%;
+    top: 19%;
 }
 
 
-.photoBtn {
+.label-file {
 	background: #CBD6DC !important;
-	border-radius: 50px;
-	border: none;
-	width: 173px;
-	height: 36px;
-	font-family: 'Work Sans';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 16px;
-	text-align: center;
-	color: #306685 !important;
-	position: absolute;
-	left: 36.5%;
-    top: 32%;
+    border-radius: 50px;
+    border: none;
+    width: 173px;
+    height: 38px;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 39px;
+    text-align: center;
+    color: #306685 !important;
+    position: absolute;
+    left: 29.5%;
+    top: 49%;
+    cursor: pointer;
+}
+
+.label-file:hover {
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	transition: 0.3s ease-in-out;
+}
+
+.input-file {
+	display: none;
+}
+
+.fa-image {
+	background: none;
+    color: #B9C5CC;
+    position: absolute;
+    left: 43.5%;
+    font-size: 60px;
+    top: 8%;
 }
 
 #labCategorie {
@@ -399,6 +432,13 @@ figcaption {
 	position: absolute;
     left: 16.5%;
     top: 50%;
+	height: 50px;
+    width: 404px;
+    border: none;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    font-family: 'Work Sans';
+    font-size: 15px;
+    padding-left: 10px;
 }
 
 #catégorie {
@@ -590,9 +630,10 @@ figcaption {
     left: 0px;
     top: 0px;
     border-radius: 0px;
-    position: absolute;
+    position: fixed;
     margin-bottom: 49px;
 	width: 100%;
+	z-index: 1000;
 }
 
 .edit p {
@@ -723,6 +764,7 @@ figcaption {
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
 }
 
 #contact label {
@@ -732,10 +774,11 @@ figcaption {
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
 }
 
 input[type="submit"]{
-	font-family: 'Syne';
+	font-family: 'Syne' !important;
 	font-weight: 700;
 	color: white;
 	background-color: #1D6154;
@@ -786,6 +829,17 @@ footer nav ul {
     background-color: transparent;
 	color: #B1663C;
 	transition: 0.3s ease-in-out;
+}
+
+#confirmation {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    color: #1D6154;
+	font-size: 1.2em;
+}
+
+#confirmation.show {
+    opacity: 1;
 }
 
 
