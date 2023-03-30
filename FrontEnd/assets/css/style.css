@@ -64,7 +64,6 @@ header {
 	margin: 90px 0 50px;
 }
   
-
 section {
 	margin: 50px 0;
 }
@@ -368,6 +367,12 @@ figcaption {
     top: 19%;
 }
 
+.file-input img {
+	position: absolute;
+	top: 0%;
+	left: 35%;
+}
+
 
 .label-file {
 	background: #CBD6DC !important;
@@ -415,6 +420,7 @@ figcaption {
     position: absolute;
     left: 104px;
     bottom: 265px;
+	background: none;
 }
 
 #labTitre {
@@ -426,6 +432,7 @@ figcaption {
     position: absolute;
     left: 104px;
     bottom: 375px;
+	background: none;
 }
 
 #titre {
@@ -721,8 +728,29 @@ figcaption {
 	text-decoration: underline;
 }
 
+.edit4 {
+	display: flex;
+    position: absolute;
+    left: 50.1%;
+    background: none;
+    align-items: center;
+    top: 170px;
+}
 
-.display-none{
+.edit4Btn {
+	padding-left: 7px;
+    cursor: pointer;
+    font: inherit;
+    border: none !important;
+    background: none !important;
+    color: black !important;
+}
+
+.edit4Btn:hover {
+	text-decoration: underline;
+}
+
+.display-none {
 	display: none;
 }
 

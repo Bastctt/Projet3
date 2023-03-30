@@ -84,6 +84,29 @@ closeBtn2.addEventListener('click', function () {
 
 //Envoie d'un nouveau travail avec fetch et post
 
+//Affichage de l'image sélectionnée
+
+const input = document.getElementById('file');
+
+input.addEventListener('change', (event) => {
+
+  const image = event.target.files[0];
+  const preview = document.createElement('img');
+
+  preview.src = URL.createObjectURL(image);
+  preview.width = 129;
+  preview.height = 169;
+
+  const previewContainer = document.querySelector('.file-input');
+  previewContainer.appendChild(preview);
+
+  const label = document.getElementById('buttonAjout');
+  const p = document.getElementById('formatPhoto')
+
+  label.style.display = 'none';
+  p.style.display = 'none';
+});
+
 modalFooterValidation.addEventListener('click', (event) => {
   event.preventDefault(); 
   
@@ -115,10 +138,6 @@ modalFooterValidation.addEventListener('click', (event) => {
     const figcaption = document.createElement('figcaption');
     const img = document.createElement('img');
     const container = document.querySelector('.gallery');
-
-    img.src = URL.createObjectURL(image);
-    img.width = 304;
-    img.height = 405;
 
     figure.setAttribute('data-id', categorie);
     figcaption.textContent = titre;

@@ -1,3 +1,5 @@
+//Connexion utilisateur unique
+
 const params = new URLSearchParams(document.location.search);
 
 if(params.get('logout')){
@@ -25,7 +27,7 @@ else{
       })
       .then(response => response.json())
       .then(data => {
-        // Connexion réussie, faire quelque chose ici (ex: redirection vers une autre page)
+        // Connexion réussie
         console.log(data);
         if(data.message ==='user not found'){
           alert('Email ou mot de passe incorrects');

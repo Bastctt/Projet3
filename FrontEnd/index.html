@@ -70,26 +70,29 @@
 			<form>
 				<div class="file-input">
 					<i class="fa-sharp fa-regular fa-image"></i>
-					<label for="file" class="label-file">+ Ajouter une photo</label>
+					<label for="file" class="label-file" id="buttonAjout">+ Ajouter une photo</label>
 					<input id="file" class="input-file" type="file">
-					<p>jpg, png : 4mo max</p>
-					<img class="previewImg">
+					<p id="formatPhoto">jpg, png : 4mo max</p>
 				</div>
 				<label for="titre" id="labTitre">Titre</label>
-					<input type="text" id="titre">
+				<input type="text" id="titre">
 				<label for="catégorie" id="labCategorie">Catégorie</label>	
 				<select id="catégorie">
 					<option></option>
-					<option value="1" data-id="1">Objets</option>
-					<option value="2" data-id="2">Appartements</option>
-					<option value="3" data-id="3">Hôtel & Restaurants</option>
-				</select>		
+						<option value="1" data-id="1">Objets</option>
+						<option value="2" data-id="2">Appartements</option>
+						<option value="3" data-id="3">Hôtel & Restaurants</option>
+				</select>
 				<hr>
 				<div class="modal_footer">
 					<button class="modal_footer_validation">Valider</button>
 				</div>
 			</form>
 		</div>
+	</div>
+	<div class="edit4 modale-bloc  display-none">
+		<img src="./assets/icons/icon-edit-black.svg">
+		<button class="edit4Btn">modifier</button>
 	</div>
 	<section id="introduction">
 		<figure>
@@ -150,14 +153,6 @@
 <script src="./assets/js/index.js"></script>
 <script src="./assets/js/modal.js"></script>
 <a href="#" id="back-to-top"><i class="fa fa-chevron-up back-to-top"></i></a>
-<script>
-    const form = document.querySelector('#contact form');
-    const confirmation = document.querySelector('#confirmation');
-    
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        confirmation.classList.add('show');
-    });
-</script>
+
 </body>
 </html>

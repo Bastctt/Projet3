@@ -5,12 +5,13 @@ function init(){
   isUserConnected();
 }
 
+//Affichage des travaux
 
 async function getWorks() {
-  // Variables travaux
+
   const gallery = document.querySelector(".gallery");   
   const figures = []; 
-  // Variables filtres
+
   const filtres = document.querySelectorAll(".filtres button"); 
   const all = document.querySelector(".all");
 
@@ -47,6 +48,7 @@ async function getWorks() {
   } catch (error) {
     console.error(" Attention il y a une erreur");
   }
+
   // Filtrage des travaux
 
   for (let button of filtres) {
@@ -67,7 +69,9 @@ async function getWorks() {
       }
     }
     });
-    
+
+//Style des boutons lors du click
+
     buttons.forEach(button => {
 
       button.addEventListener("click", () => {
@@ -86,6 +90,7 @@ async function getWorks() {
   };
 };
 
+//Déconnexion utilisateur unique
 
 function isUserConnected () {
 
@@ -104,10 +109,11 @@ const filtres = document.querySelector('.filtres');
 
       element.classList.remove('display-none');
       filtres.classList.add('hidden');
-
     })
   }
-};
+}
+
+//Bouton retour au top de la page 
 
 window.onscroll = function() {
   scrollFunction()
@@ -122,4 +128,13 @@ function scrollFunction() {
       document.getElementById("back-to-top").classList.remove("show");
   }
 };
+
+const form = document.querySelector('#contact form');
+    const confirmation = document.querySelector('#confirmation');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        confirmation.classList.add('show');
+    });
+
 
