@@ -129,6 +129,8 @@ function scrollFunction() {
   }
 };
 
+//Message envoi du formulaire de contact
+
 const form = document.querySelector('#contact form');
     const confirmation = document.querySelector('#confirmation');
     

@@ -644,24 +644,24 @@ figcaption {
 }
 
 .edit p {
-	background-color: black;
-    color: white;
-    height: 19px;
+	position: absolute;
+	height: 19px;
     width: 102px;
     left: 565px;
     top: 22px;
-    position: absolute;
+	background-color: black;
+    color: white;
 	cursor: default;
 }
 
 .edit1 {
+	position: absolute;
 	height: 38px;
     width: 216px;
     left: 760px;
     top: 10px;
     border-radius: 60px;
 	font: inherit;
-    position: absolute;
     border: none;
 	color: black !important;
 	background-color: white !important;
