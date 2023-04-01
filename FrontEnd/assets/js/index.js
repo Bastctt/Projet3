@@ -5,7 +5,7 @@ function init(){
   isUserConnected();
 }
 
-//Affichage des travaux
+// Affichage des travaux
 
 async function getWorks() {
 
@@ -70,7 +70,7 @@ async function getWorks() {
     }
     });
 
-//Style des boutons lors du click
+// Style des boutons lors du click
 
     buttons.forEach(button => {
 
@@ -90,7 +90,7 @@ async function getWorks() {
   };
 };
 
-//Déconnexion utilisateur unique
+// Déconnexion utilisateur unique
 
 function isUserConnected () {
 
@@ -113,7 +113,7 @@ const filtres = document.querySelector('.filtres');
   }
 }
 
-//Bouton retour au top de la page 
+// Bouton retour au top de la page 
 
 window.onscroll = function() {
   scrollFunction()
@@ -129,7 +129,7 @@ function scrollFunction() {
   }
 };
 
-//Message envoi du formulaire de contact
+// Message envoi du formulaire de contact
 
 const form = document.querySelector('#contact form');
     const confirmation = document.querySelector('#confirmation');

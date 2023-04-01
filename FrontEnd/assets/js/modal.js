@@ -57,7 +57,7 @@ fetch("http://localhost:5678/api/works")
     });
   });
 
-//Ecouteurs d'évènements pour la modale
+// Ecouteurs d'évènements pour la modale
 
 edit3Btn.addEventListener('click', function () {
   overlay.classList.add('visible');
@@ -82,9 +82,9 @@ closeBtn2.addEventListener('click', function () {
   overlay.classList.remove('visible');
 });
 
-//Envoie d'un nouveau travail avec fetch et post
+// Envoie d'un nouveau travail avec fetch et post
 
-//Affichage de l'image sélectionnée
+// Affichage de l'image sélectionnée
 
 const input = document.getElementById('file');
 
@@ -111,10 +111,19 @@ modalFooterValidation.addEventListener('click', (event) => {
   event.preventDefault(); 
   
   // Récupérer les informations du formulaire
-  const titre = document.getElementById('titre').value;
-  const categorie = document.getElementById('catégorie').value;
+  const titre = document.getElementById('titre').value.trim();
+  const categorie = document.getElementById('catégorie').value.trim();
   const image = document.getElementById('file').files[0];
-  
+ 
+  // Vérifier si tous les champs sont remplis
+  if (titre === '' || categorie === '' || !image) {
+    const errorMessage = document.getElementById('error-modal');
+    errorMessage.textContent = "Merci de remplir tous les champs";
+    errorMessage.style.color = "red";
+    errorMessage.style.display = 'block';
+    return;
+  }
+
   // Créer un objet FormData pour envoyer les données
   const formData = new FormData();
   formData.append('title', titre);
@@ -122,7 +131,6 @@ modalFooterValidation.addEventListener('click', (event) => {
   formData.append('image', image);
   
   // Envoyer la requête POST à l'API
-  
   fetch('http://localhost:5678/api/works', {
     method: 'POST',
     headers: {
@@ -148,6 +156,7 @@ modalFooterValidation.addEventListener('click', (event) => {
   })
   .catch(error => console.error(error));
 });
+
 
 
 

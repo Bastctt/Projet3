@@ -271,11 +271,20 @@ figcaption {
 	display: block;
 }
 
+#error-modal {
+    position: relative;
+    bottom: 35px;
+    left: 16%;
+    background: none;
+}
+
+
 .overlay {
 	position: absolute;
 	width: 100%;
     height: 4000px;
-	left: -3px;
+	right: 0;
+	left: 0;
 	top: 59px;
 	background: rgba(0, 0, 0, 0.3);
 	backdrop-filter: blur(5px);
@@ -620,9 +629,7 @@ figcaption {
 
 .editBtn {
 	position: absolute;
-    left: 39.24%;
-    right: 53.68%;
-    top: 33.9%;
+    left: 42.24%;
     bottom: 33.9%;
 	font: inherit;
     border: none;
@@ -871,3 +878,24 @@ footer nav ul {
 }
 
 
+@media screen and (min-width: 2560px) {
+	.edit1 {
+	  	left: 50%;
+	}
+
+	.editBtn {
+		left: 46.24%
+	}
+	
+	.edit img {
+		left: 45.1%;
+	}
+
+	.edit3 {
+		left: 53%;
+    	top: 32.2%;
+	}
+		
+	
+  }
+  

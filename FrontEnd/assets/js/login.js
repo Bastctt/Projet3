@@ -1,19 +1,19 @@
-//Connexion utilisateur unique
+// Connexion utilisateur unique
 
 const params = new URLSearchParams(document.location.search);
 
-if(params.get('logout')){
+if (params.get('logout')) {
   sessionStorage.removeItem('userToken');
   window.location.href = 'index.html';
-}
-else{
+} else {
   const form = document.querySelector('form');
+  const errorMessage = document.querySelector('#error-message');
+
   form.addEventListener('submit', (event) => {
     event.preventDefault();
     const email = document.querySelector('#email').value.trim();
     const password = document.querySelector('#motDePasse').value.trim();
-    
-    
+
     if (email.length > 0 && password.length > 0) {
       fetch('http://localhost:5678/api/users/login', {
         method: 'POST',
@@ -25,26 +25,32 @@ else{
           password: password
         })
       })
-      .then(response => response.json())
-      .then(data => {
-        // Connexion réussie
-        console.log(data);
-        if(data.message ==='user not found'){
-          alert('Email ou mot de passe incorrects');
-        }else{
-          sessionStorage.setItem('userToken', data.token);
-          window.location.href = 'index.html';
-      }
-      })
-      .catch(error => {
-        console.error(error);
-      });
+        .then(response => response.json())
+        .then(data => {
+          if (data.message === 'user not found') {
+            errorMessage.textContent = 'Email ou mot de passe incorrects';
+            errorMessage.style.color = 'red';
+          } else {
+            if (data.token) {
+              sessionStorage.setItem('userToken', data.token);
+              window.location.href = 'index.html';
+            } else {
+              errorMessage.textContent = 'Email ou mot de passe incorrects';
+              errorMessage.style.color = 'red';
+            }
+          }
+        })
+        .catch(error => {
+          console.error(error);
+        });
     } else {
-      // Email ou mot de passe incorrects, afficher un message d'erreur
-      alert('Merci de saisir un mot de passe et une adresse mail valide');
+      errorMessage.textContent = 'Merci de saisir une adresse mail et un mot de passe valides';
+      errorMessage.style.color = 'red';
     }
   });
+
 }
+
 
 
 
