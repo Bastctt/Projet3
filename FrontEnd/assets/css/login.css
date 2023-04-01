@@ -102,6 +102,12 @@ nav a:hover {
 	color: #B1663C;
 }
 
+#error-message {
+	color: red;
+	opacity: 0;
+	transition: 0.3s ease-in-out;
+}
+
 .loginStrong {
 	font-weight: 600;
 }

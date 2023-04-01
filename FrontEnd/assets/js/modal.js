@@ -118,9 +118,8 @@ modalFooterValidation.addEventListener('click', (event) => {
   // Vérifier si tous les champs sont remplis
   if (titre === '' || categorie === '' || !image) {
     const errorMessage = document.getElementById('error-modal');
-    errorMessage.textContent = "Merci de remplir tous les champs";
-    errorMessage.style.color = "red";
-    errorMessage.style.display = 'block';
+    errorMessage.style.opacity = '1';
+    
     return;
   }
 

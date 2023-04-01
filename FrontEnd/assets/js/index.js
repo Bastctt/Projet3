@@ -64,7 +64,8 @@ async function getWorks() {
       } else if(button === all){ 
           figure.style.display = "block";
       }
-      else {
+
+       else {
         figure.style.display = "none";
       }
     }
@@ -97,7 +98,7 @@ function isUserConnected () {
 const modifyBtn = document.querySelectorAll('.modale-bloc');
 const filtres = document.querySelector('.filtres');
 
-  if(sessionStorage.userToken) {
+  if (sessionStorage.userToken) {
 
     let loginLink = document.getElementById('login-link');
     loginLink.innerHTML = "logout";
@@ -132,11 +133,24 @@ function scrollFunction() {
 // Message envoi du formulaire de contact
 
 const form = document.querySelector('#contact form');
-    const confirmation = document.querySelector('#confirmation');
-    
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
+const confirmation = document.querySelector('#confirmation');
+const errorContact = document.getElementById('error-contact');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+
+    if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
+        errorContact.style.opacity = '1';
+
+    } else {
         confirmation.classList.add('show');
-    });
+        errorContact.style.opacity ='0';
+    }
+});
+
 
 

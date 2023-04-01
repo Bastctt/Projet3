@@ -134,7 +134,7 @@ li:hover {
 figcaption {
 	cursor: default;
 }
-
+  
 #btn-modif2 {
 	position: absolute;
     left: 872px;
@@ -273,11 +273,14 @@ figcaption {
 
 #error-modal {
     position: relative;
-    bottom: 35px;
+    bottom: 40px;
     left: 16%;
     background: none;
+	color: red;
+	opacity: 0;
+	transition: 0.3s ease-in-out;
+	cursor: default;
 }
-
 
 .overlay {
 	position: absolute;
@@ -629,7 +632,7 @@ figcaption {
 
 .editBtn {
 	position: absolute;
-    left: 42.24%;
+    left: 39.4%;
     bottom: 33.9%;
 	font: inherit;
     border: none;
@@ -822,6 +825,14 @@ input[type="submit"]{
 	text-align: center;
 	border-radius: 60px ;
 	cursor: pointer;
+}
+
+#error-contact {
+	position: relative;
+    bottom: -28px;
+	color: red;
+	opacity: 0;
+	transition: 0.3s ease-in-out;
 }
 
 footer nav ul {
