@@ -11,13 +11,16 @@ const modalAjout = document.querySelector('.modal_ajout');
 const backBtn = document.querySelector('.backBtn');
 const token = sessionStorage.getItem('userToken');
 const modalFooterValidation = document.querySelector ('.modal_footer_validation');
+const messageProjet = document.getElementById('messageProjet');
 
 // Récupération des données via une requête fetch
 
 fetch("http://localhost:5678/api/works")
   .then(response => response.json())
   .then(data => {
+
     // Boucle sur les données reçues pour créer des éléments HTML
+
     data.forEach(work => {
       const figure = document.createElement('div');
       const img = document.createElement("img");
@@ -38,8 +41,11 @@ fetch("http://localhost:5678/api/works")
       modalBody.appendChild(figure);
 
       // Ajout d'un événement click sur l'icône de poubelle pour supprimer le travail
+
       deleteIcon.addEventListener('click', function () {
-        // Requête fetch pour supprimer le travail
+
+      // Requête fetch pour supprimer le travail
+
         fetch(`http://localhost:5678/api/works/${work.id}`, {
           method: 'DELETE',
           headers: {
@@ -49,11 +55,15 @@ fetch("http://localhost:5678/api/works")
         })
         .then(response => response.json())
         .then(data => {
-          // Suppression de la div correspondante
+
+          // Suppression de la div correspondante et affichage message
+
           figure.remove();
+
         })
         .catch(error => console.error(error));
       });
+      
     });
   });
 
@@ -81,6 +91,7 @@ closeBtn2.addEventListener('click', function () {
   modal.classList.remove('visible');
   overlay.classList.remove('visible');
 });
+
 
 // Envoie d'un nouveau travail avec fetch et post
 
@@ -111,11 +122,13 @@ modalFooterValidation.addEventListener('click', (event) => {
   event.preventDefault(); 
   
   // Récupérer les informations du formulaire
+
   const titre = document.getElementById('titre').value.trim();
   const categorie = document.getElementById('catégorie').value.trim();
   const image = document.getElementById('file').files[0];
  
   // Vérifier si tous les champs sont remplis
+  
   if (titre === '' || categorie === '' || !image) {
     const errorMessage = document.getElementById('error-modal');
     errorMessage.style.opacity = '1';
@@ -124,12 +137,14 @@ modalFooterValidation.addEventListener('click', (event) => {
   }
 
   // Créer un objet FormData pour envoyer les données
+
   const formData = new FormData();
   formData.append('title', titre);
   formData.append('category', categorie);
   formData.append('image', image);
   
   // Envoyer la requête POST à l'API
+
   fetch('http://localhost:5678/api/works', {
     method: 'POST',
     headers: {
@@ -139,8 +154,11 @@ modalFooterValidation.addEventListener('click', (event) => {
   })
   .then(response => response.json())
   .then(data => {
+    console.log('Projet ajouté !')
     console.log(data);
+
     // Afficher le travail nouvellement créé sur la page d'accueil
+
     const figure = document.createElement('figure');
     const figcaption = document.createElement('figcaption');
     const img = document.createElement('img');
@@ -152,6 +170,8 @@ modalFooterValidation.addEventListener('click', (event) => {
     figure.appendChild(img);
     figure.appendChild(figcaption);
     container.appendChild(figure);
+  
+
   })
   .catch(error => console.error(error));
 });

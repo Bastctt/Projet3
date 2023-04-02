@@ -180,7 +180,6 @@ figcaption {
 
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
 	cursor: default;
 }
 
@@ -260,6 +259,14 @@ figcaption {
 	background-color: #FFFEF8;
 	cursor: pointer;
 }
+
+/* #messageProjet {
+	display: flex;
+	justify-content: center;
+	color: #1D6154;
+	opacity: 0;
+	transition: 0.3s ease-in-out;
+} */
 
 .overlay,
 .myModal {
@@ -630,10 +637,15 @@ figcaption {
 	transform: rotate(360deg);
 }
 
+.h2AndEdit {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	
+}
+
 .editBtn {
-	position: absolute;
-    left: 39.4%;
-    bottom: 33.9%;
+	margin: 0 5px 0 5px;
 	font: inherit;
     border: none;
     background: none !important;
@@ -651,6 +663,9 @@ figcaption {
     margin-bottom: 49px;
 	width: 100%;
 	z-index: 1000;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .edit p {
@@ -665,11 +680,8 @@ figcaption {
 }
 
 .edit1 {
-	position: absolute;
 	height: 38px;
     width: 216px;
-    left: 760px;
-    top: 10px;
     border-radius: 60px;
 	font: inherit;
     border: none;
@@ -685,11 +697,6 @@ figcaption {
 }
 
 .edit img {
-	position: absolute;
-    left: 38.1%;
-    right: 61.62%;
-    top: 31.44%;
-    bottom: 33.95%;
 	background: none;
 }
 
@@ -717,11 +724,9 @@ figcaption {
 
 .edit3 {
 	display: flex;
-    position: absolute;
-    left: 57%;
-    top: 65.29%;
 	align-items: center;
 	background: none;
+	margin-left: 1%;
 }
 
 .edit3Btn {
@@ -740,11 +745,10 @@ figcaption {
 
 .edit4 {
 	display: flex;
-    position: absolute;
-    left: 50.1%;
     background: none;
     align-items: center;
-    top: 170px;
+    width: 12%;
+    margin-bottom: 30px;
 }
 
 .edit4Btn {
@@ -889,24 +893,5 @@ footer nav ul {
 }
 
 
-@media screen and (min-width: 2560px) {
-	.edit1 {
-	  	left: 50%;
-	}
 
-	.editBtn {
-		left: 46.24%
-	}
-	
-	.edit img {
-		left: 45.1%;
-	}
-
-	.edit3 {
-		left: 53%;
-    	top: 32.2%;
-	}
-		
-	
-  }
   
