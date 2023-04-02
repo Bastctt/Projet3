@@ -22,6 +22,7 @@ fetch("http://localhost:5678/api/works")
     // Boucle sur les données reçues pour créer des éléments HTML
 
     data.forEach(work => {
+
       const figure = document.createElement('div');
       const img = document.createElement("img");
       const figcaption = document.createElement('p');
@@ -91,7 +92,6 @@ closeBtn2.addEventListener('click', function () {
   modal.classList.remove('visible');
   overlay.classList.remove('visible');
 });
-
 
 // Envoie d'un nouveau travail avec fetch et post
 
