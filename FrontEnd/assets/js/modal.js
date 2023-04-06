@@ -13,6 +13,7 @@ const token = sessionStorage.getItem('userToken');
 const modalFooterValidation = document.querySelector ('.modal_footer_validation');
 const messageProjet = document.getElementById('messageProjet');
 
+
 // Récupération des données via une requête fetch
 
 fetch("http://localhost:5678/api/works")
