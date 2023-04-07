@@ -53,29 +53,30 @@ async function getWorks() {
 
   for (let button of filtres) {
   
-  button.addEventListener("click", function () {
-
-  for (let figure of figures) {
-      if (
-          figure.getAttribute("data-id") === button.getAttribute("data-id") 
-      ) {
-        figure.style.display = "block";
-    
-      } else if(button === all){ 
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
+    for (let figure of figures) {
+        if (
+            figure.getAttribute("data-id") === button.getAttribute("data-id") 
+        ) {
           figure.style.display = "block";
-      }
+      
+        } else if(button === all){ 
+            figure.style.display = "block";
+        }
 
-       else {
-        figure.style.display = "none";
+        else {
+          figure.style.display = "none";
+        }
       }
-    }
     });
 
 // Style des boutons lors du click
 
     buttons.forEach(button => {
 
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
         buttons.forEach(button => {
 
           button.style.backgroundColor = "#FFFEF8";

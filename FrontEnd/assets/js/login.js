@@ -9,7 +9,7 @@ if (params.get('logout')) {
 
 } else {
 
-  const form = document.querySelector('form');
+  const form = document.getElementById('form-login');
   const errorMessage = document.querySelector('#error-message');
 
   form.addEventListener('submit', (event) => {
