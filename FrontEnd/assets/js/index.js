@@ -43,7 +43,6 @@ async function getWorks() {
       gallery.append(figure);
       figures.push(figure);
 
-      console.log(works)
     }
   } catch (error) {
     console.error(" Attention il y a une erreur");
