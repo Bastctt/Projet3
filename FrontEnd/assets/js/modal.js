@@ -6,10 +6,11 @@ const figure = document.querySelector('.image-container');
 init();
 
 async function init(){
-sendNewWork();
-openModal();
-closeModal();
- await  getWorks(); }
+  sendNewWork();
+  openModal();
+  closeModal();
+  await getWorks(); 
+}
 
 function openModal() {
 
@@ -121,8 +122,8 @@ async function getWorks() {
       deleteIcon.addEventListener('click', function(e) {
         e.preventDefault();
 
-        console.log(e.target)
-        console.log(e.target.closest('figure'))
+        // console.log(e.target)
+        // console.log(e.target.closest('figure'))
 
        deleteWorks(e);
       });
@@ -199,24 +200,33 @@ function sendNewWork() {
   .then(response => response.json())
   .then(data => {
     console.log('Projet ajouté !')
-    console.log(data);
 
-//     // Afficher le travail nouvellement créé sur la page d'accueil
+    // Afficher le travail nouvellement créé sur la page d'accueil
 
     const figure = document.createElement('figure');
     const figcaption = document.createElement('figcaption');
     const img = document.createElement('img');
     const container = document.querySelector('.gallery');
+    // const modalBody = document.querySelector('.modal_body');
+
+    img.setAttribute("src", data.imageUrl);
+    img.setAttribute("alt", data.title);
 
     figure.setAttribute('data-id', categorie);
+    figure.setAttribute("id", data.id);
     figcaption.textContent = titre;
 
     figure.appendChild(img);
     figure.appendChild(figcaption);
     container.appendChild(figure);
+    // modalBody.appendChild(img);
+    // modalBody.appendChild(figcaption);
+    // modalBody.appendChild(figure);
+
+    // empêcher la fermeture de la modal
 
     const modal = document.querySelector('.myModal');
-    // empêcher la fermeture de la modal
+
     modal.style.display = 'block';
 
   })
@@ -234,179 +244,30 @@ uploadLimit.onchange = function (){
 }
 
 async function deleteWorks(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  let figure = e.target.closest('figure');
-  let projectId = figure.getAttribute('data-id');
+    e.preventDefault();
+    e.stopPropagation();
+    let figure = e.target.closest('figure');
+    let projectId = figure.getAttribute('data-id');
 
-  const modal = document.querySelector('.myModal');
-  // empêcher la fermeture de la modal
-  modal.style.display = 'block';
+    const modal = document.querySelector('.myModal');
 
-//   // stocker les données de la figure dans le localStorage
-  let figureData = {
-    id: projectId,
-    imageUrl: figure.querySelector('img').src,
-    title: figure.querySelector('figcaption'),
-    category: figure.getAttribute('data-id')
-  };
-  let figures = JSON.parse(localStorage.getItem('deletedFigures') || '[]');
-  figures.push(figureData);
-  localStorage.setItem('deletedFigures', JSON.stringify(figures));
+    var element = document.getElementById(projectId);
 
-  // masquer la figure
-  figure.style.display = 'none';
+    element.remove();
+    figure.remove();
 
-  // const closeBtn = document.querySelector('.closeBtn');
-  // closeBtn.addEventListener('click', async (event) => {
-    // event.preventDefault();
-    // event.stopPropagation();
-
-  //  // supprimer la figure
-      const response = await fetch(`http://localhost:5678/api/works/${projectId}`, {
+    // supprimer la figure
+    const response = await fetch(`http://localhost:5678/api/works/${projectId}`, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
         }
-      });
-      console.log(response)
-    // });
+    });
+    console.log('Projet supprimé !')
 }
 
 
 
-
-
-
-
-// init();
-
-// function init(){
-//   openModal();
-//   closeModal();
-// }
-
-
-
-// function openModal() {
-
-//   const modal = document.querySelector('.myModal');
-//   const overlay = document.querySelector('.overlay');
-//   const edit3Btn = document.querySelector('.edit3Btn');
-
-//   edit3Btn.addEventListener('click', function (e) {
-//   e.preventDefault();
-      
-//   modal.style.display = 'block';
-//   overlay.style.display = 'block';
-
-//   });
-//   displayModal();
-// }
-
-
-
-// function displayModal () {
-
-//   const modalFooterButton = document.querySelector('.modal_footer_button');
-//   const modalAjout = document.querySelector('.modal_ajout');
-//   const backBtn = document.querySelector('.backBtn');
-
-//   modalFooterButton.addEventListener('click', function (e) {
-//     e.preventDefault();
-      
-//       modalAjout.style.display = "block";
-
-//   });
-    
-//   backBtn.addEventListener('click', function (e) {
-//     e.preventDefault();
-      
-//       modalAjout.style.display = "none";
-
-//   });
-//   getWorks();
-// }
-
-
-// function closeModal() {
-
-//   const modal = document.querySelector('.myModal');
-//   const overlay = document.querySelector('.overlay');
-//   const modalAjout = document.querySelector('.modal_ajout');
-//   const modalBody = modal.querySelector('.modal_body');
-//   const closeBtn = document.querySelector('.closeBtn');
-//   const closeBtn2 = document.querySelector('.closeBtn2');
-//   const form = modalAjout.querySelector('.myForm');
-      
-    
-//   closeBtn.addEventListener('click', function (e) {
-//      e.preventDefault();
-
-//     modal.style.display = 'none';
-//     overlay.style.display = 'none';
-//     modalBody.scrollTop = 0; // Réinitialise la position de la scrollbar
-//     modalAjout.style.display = 'none'; // Réinitialise à la première page
-//     form.reset();
-    
-//     console.log("Formulaire réinitialisé !");
-
-//   });
-    
-//   closeBtn2.addEventListener('click', function(e) {
-//     e.preventDefault();
-    
-//     modal.style.display = 'none';
-//     overlay.style.display = 'none';
-//     modalBody.scrollTop = 0; // Réinitialise la position de la scrollbar
-//     modalAjout.style.display = 'none'; // Réinitialise à la première page
-//     form.reset();
-    
-//     console.log("Formulaire réinitialisé !");
-
-//   });
-// }
-
-
-
-
-// // Affichage des travaux
-
-// async function getWorks2() {
-
-//   const gallery = document.querySelector(".gallery");   
-//   const figures = []; 
-
-//   let Api = "http://localhost:5678/api/works";
-
-//   try {
-    
-//     const response = await fetch(Api); 
-//     const works = await response.json(); 
-
-//     for (let i in works) {
-
-//       const figure = document.createElement("figure");
-//       const img = document.createElement("img");
-//       const figcaption = document.createElement("figcaption");
-
-//       img.setAttribute("src", works[i].imageUrl);
-//       img.setAttribute("alt", works[i].title);
-//       img.setAttribute("cross-origin", "anonymous");
-//       figure.setAttribute("data-id", works[i].categoryId);
-      
-
-//       figcaption.innerHTML = works[i].title;
-
-//       figure.append(img, figcaption);
-//       gallery.append(figure);
-//       figures.push(figure);
-
-//     }
-//   } catch (error) {
-//     console.error(" Attention il y a une erreur");
-//   }
-// }
 
 
 
