@@ -162,7 +162,7 @@ function sendNewWork() {
 
   const modalFooterValidation = document.querySelector('.modal_footer_validation');
 
-  modalFooterValidation.addEventListener('mousedown', (event) => {
+  modalFooterValidation.addEventListener('click', (event) => {
     event.preventDefault();
     event.stopPropagation(); 
     // Récupérer les informations du formulaire
@@ -207,7 +207,6 @@ function sendNewWork() {
     const figcaption = document.createElement('figcaption');
     const img = document.createElement('img');
     const container = document.querySelector('.gallery');
-    // const modalBody = document.querySelector('.modal_body');
 
     img.setAttribute("src", data.imageUrl);
     img.setAttribute("alt", data.title);
@@ -219,14 +218,10 @@ function sendNewWork() {
     figure.appendChild(img);
     figure.appendChild(figcaption);
     container.appendChild(figure);
-    // modalBody.appendChild(img);
-    // modalBody.appendChild(figcaption);
-    // modalBody.appendChild(figure);
-
+    
     // empêcher la fermeture de la modal
 
     const modal = document.querySelector('.myModal');
-
     modal.style.display = 'block';
 
   })
@@ -236,18 +231,29 @@ function sendNewWork() {
 
 // Check de la limite de 4mo de l'image
 let uploadLimit = document.querySelector("#file")
+
 uploadLimit.onchange = function (){
     if(file.files[0].size > 4194304) {
+
         alert("Fichier trop volumineux");
+
         file.value = "";
-    }
+      }
 }
 
 async function deleteWorks(e) {
     e.preventDefault();
     e.stopPropagation();
+
     let figure = e.target.closest('figure');
     let projectId = figure.getAttribute('data-id');
+
+    // afficher la boîte de confirmation avant de supprimer
+    const confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer ce projet ?");
+
+      if (!confirmed) {
+        return; // annuler la suppression si l'utilisateur n'a pas confirmé
+      }
 
     const modal = document.querySelector('.myModal');
 
