@@ -35,6 +35,10 @@ if (params.get('logout')) {
 
           if (data.message === 'user not found') {
             errorMessage.style.opacity = '1';
+
+            setTimeout(() => {
+              errorMessage.style.opacity = 0;
+            }, 3000);
           } 
 
           else {
@@ -45,6 +49,10 @@ if (params.get('logout')) {
 
             } else {
               errorMessage.style.opacity = '1';
+
+              setTimeout(() => {
+                errorMessage.style.opacity = 0;
+              }, 3000);
             }
 
           }
@@ -56,6 +64,10 @@ if (params.get('logout')) {
     } else {
       errorMessage.textContent = 'Merci de saisir une adresse mail et un mot de passe valides.';
       errorMessage.style.opacity = '1';
+
+      setTimeout(() => {
+        errorMessage.style.opacity = 0;
+      }, 3000);
     }
   });
 

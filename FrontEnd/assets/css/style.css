@@ -362,7 +362,7 @@ figcaption {
 
 .modal_ajout hr {
 	position: relative;
-    top: 434px;
+    top:  418px;
     border: 1px solid #B3B3B3;
     width: 70%;
 }
@@ -475,7 +475,7 @@ figcaption {
     padding-left: 10px;
 }
 
-#catégorie {
+#categorie {
 	position: absolute;
     left: 16.5%;
     top: 65%;
@@ -518,6 +518,24 @@ figcaption {
 	color: black;
 	background: white;
 	cursor: default;
+}
+
+.delete_message {
+	opacity: 0;
+	cursor: default;
+	position: absolute;
+	top: 15%;
+	left: 41%;
+	color: #B1663C;
+}
+
+.new_work_message {
+	opacity: 0;
+	cursor: default;
+	position: absolute;
+	top: 15%;
+	left: 42.5%;
+	color: #B1663C;
 }
 
 .modal--open {
