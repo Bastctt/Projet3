@@ -382,16 +382,6 @@ async function getWorks() {
       figure.appendChild(switchIcon);
       modalBody.appendChild(figure);
 
-      // Ajouter un écouteur d'événements pour le survol de l'image
-      figure.addEventListener('mouseenter', function() {
-        switchIcon.style.opacity = '1';
-      });
-
-      // Ajouter un écouteur d'événements pour lorsque le curseur quitte l'image
-      figure.addEventListener('mouseleave', function() {
-        switchIcon.style.opacity = '0';
-      });
-
       deleteIcon.addEventListener('click', function(e) {
         e.preventDefault();
 
@@ -497,12 +487,12 @@ function sendNewWork() {
 
     const newWorkMessage = document.querySelector('.new_work_message');
     newWorkMessage.style.opacity = 1;
-    newWorkMessage.style.transition = 'opacity 0.3s';
-    newWorkMessage.style.color = '#B1663C';
+    newWorkMessage.classList.add('animate');
 
     setTimeout(() => {
+      newWorkMessage.classList.remove('animate');
       newWorkMessage.style.opacity = 0;
-    }, 3000);
+    }, 2000);
 
     const modalAjout = document.querySelector('.modal_ajout');
     modalAjout.style.display = 'none';
@@ -577,12 +567,13 @@ async function deleteWorks(e) {
 
     const deleteMessage = document.querySelector('.delete_message');
     deleteMessage.style.opacity = 1;
-    deleteMessage.style.transition = 'opacity 0.3s';
-    deleteMessage.style.color = '#B1663C';
+    deleteMessage.classList.add('animate');
 
     setTimeout(() => {
+      deleteMessage.classList.remove('animate');
       deleteMessage.style.opacity = 0;
-    }, 3000);
+    }, 2000);
+
 
     const response = await fetch(`http://localhost:5678/api/works/${projectId}`, {
         method: 'DELETE',

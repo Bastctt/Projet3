@@ -127,6 +127,10 @@ nav img {
 figcaption {
 	cursor: default;
 }
+
+figure:hover .switch-icon {
+	opacity: 1;
+}
   
 #btn-modif2 {
 	position: absolute;
@@ -527,8 +531,33 @@ figcaption {
 	top: 15%;
 	left: 41%;
 	color: #B1663C;
-}
-
+	transition: opacity 0.3s ease-in-out;
+  }
+  
+  .delete_message.animate {
+	animation: bounce-in 1s forwards;
+  }
+  
+  @keyframes bounce-in {
+	0% {
+	  transform: translateY(-100%);
+	  opacity: 0;
+	}
+	25% {
+	  transform: translateY(25%);
+	  opacity: 1;
+	}
+	50% {
+	  transform: translateY(-10%);
+	}
+	75% {
+	  transform: translateY(5%);
+	}
+	100% {
+	  transform: translateY(0%);
+	}
+  }
+  
 .new_work_message {
 	opacity: 0;
 	cursor: default;
@@ -536,7 +565,32 @@ figcaption {
 	top: 15%;
 	left: 42.5%;
 	color: #B1663C;
+	transition: opacity 0.3s ease-in-out;
 }
+
+.new_work_message.animate {
+	animation: bounce-in 1s forwards;
+  }
+  
+  @keyframes bounce-in {
+	0% {
+	  transform: translateY(-100%);
+	  opacity: 0;
+	}
+	25% {
+	  transform: translateY(25%);
+	  opacity: 1;
+	}
+	50% {
+	  transform: translateY(-10%);
+	}
+	75% {
+	  transform: translateY(5%);
+	}
+	100% {
+	  transform: translateY(0%);
+	}
+  }
 
 .modal--open {
 	display: block;
@@ -675,7 +729,7 @@ figcaption {
     border-radius: 5px;
 	background-color: black;
 	opacity: 0;
-  	transition: opacity 0.6s ease-in-out;
+	transition: 0.4s ease-in-out;
 }
 
 .switchIcon {
