@@ -195,9 +195,11 @@ figure:hover .switch-icon {
 	height: 505.25px;
 	transition: transform 0.3s ease;
   }
+
 .gallery figure img:hover {
 	transform: scale(1.2);
 	cursor: pointer;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .filtres {
@@ -531,32 +533,9 @@ figure:hover .switch-icon {
 	top: 15%;
 	left: 41%;
 	color: #B1663C;
-	transition: opacity 0.3s ease-in-out;
-  }
-  
-  .delete_message.animate {
-	animation: bounce-in 1s forwards;
-  }
-  
-  @keyframes bounce-in {
-	0% {
-	  transform: translateY(-100%);
-	  opacity: 0;
-	}
-	25% {
-	  transform: translateY(25%);
-	  opacity: 1;
-	}
-	50% {
-	  transform: translateY(-10%);
-	}
-	75% {
-	  transform: translateY(5%);
-	}
-	100% {
-	  transform: translateY(0%);
-	}
-  }
+	transition: opacity 0.5s ease-in-out;
+}
+
   
 .new_work_message {
 	opacity: 0;
@@ -565,32 +544,8 @@ figure:hover .switch-icon {
 	top: 15%;
 	left: 42.5%;
 	color: #B1663C;
-	transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.5s ease-in-out;
 }
-
-.new_work_message.animate {
-	animation: bounce-in 1s forwards;
-  }
-  
-  @keyframes bounce-in {
-	0% {
-	  transform: translateY(-100%);
-	  opacity: 0;
-	}
-	25% {
-	  transform: translateY(25%);
-	  opacity: 1;
-	}
-	50% {
-	  transform: translateY(-10%);
-	}
-	75% {
-	  transform: translateY(5%);
-	}
-	100% {
-	  transform: translateY(0%);
-	}
-  }
 
 .modal--open {
 	display: block;
