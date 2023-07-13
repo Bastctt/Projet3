@@ -5,7 +5,6 @@ const params = new URLSearchParams(document.location.search);
 if (params.get('logout')) {
 
   sessionStorage.removeItem('userToken');
-  localStorage.removeItem('deletedFigures');
   window.location.href = 'index.html';
 
 } else {
