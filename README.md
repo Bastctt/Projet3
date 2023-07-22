@@ -1,6 +1,6 @@
 # Sophie Bluel
 
-#Présentation du projet numéro 3 de la formation développeur web OpenClassRooms
+Présentation du projet numéro 3 de la formation développeur web OpenClassRooms :
 
 Mission de développeur front-end au sein d’une équipe qui travaille sur la conception du site portfolio d’une architecte d’intérieur.
 
