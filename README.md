@@ -1,6 +1,6 @@
 # Sophie Bluel
 
-![Sophie](/assets/images/sophie-bluel.png)
+![Sophie](/FrontEnd/assets/images/sophie-bluel.png)
 
 Projet numéro 3 de la formation Développeur Web OpenClassrooms
 
