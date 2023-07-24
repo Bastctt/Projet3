@@ -1,5 +1,7 @@
 # Sophie Bluel
 
+![Sophie](/assets/images/sophie-bluel.png)
+
 Projet numéro 3 de la formation Développeur Web OpenClassrooms
 
 Mission de développeur front-end au sein d’une équipe qui travaille sur la conception du site portfolio d’une architecte d’intérieur.
